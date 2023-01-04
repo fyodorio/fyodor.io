@@ -1,18 +1,22 @@
 <template>
-	<g-link class="logo" to="/">
+	<a class="logo" href="/">
 	  <span class="logo__text">
-	    &larr; {{ $static.metadata.siteName }}
+	    &larr; {{ config.title }}
 	  </span>
-	</g-link>
+	</a>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
+<script>
+import config from '../data/config';
+
+export default {
+	data: () => {
+		return {
+			config
+		}
+	}
 }
-</static-query>
+</script>
 
 <style lang="scss">
 .logo {

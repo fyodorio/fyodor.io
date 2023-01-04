@@ -1,7 +1,7 @@
 <template>
   <div class="post-card content-box" :class="{'post-card--has-poster' : post.poster}">
     <div class="post-card__header">
-      <g-image alt="Cover image" v-if="post.cover_image" class="post-card__image" :src="post.cover_image" />
+      <img v-if="post.cover_image" :src="post.cover_image" />
     </div>
     <div class="post-card__content">
       <h2 class="post-card__title" v-html="post.title" />
@@ -10,14 +10,14 @@
       <PostMeta class="post-card__meta" :post="post" />
       <PostTags class="post-card__tags" :post="post" />
 
-      <g-link class="post-card__link" :to="post.path">Link</g-link>
+      <a class="post-card__link" :href="post.path">Link</a>
     </div>
   </div>
 </template>
 
 <script>
-import PostMeta from '~/components/PostMeta'
-import PostTags from '~/components/PostTags'
+import PostMeta from './PostMeta.vue'
+import PostTags from './PostTags.vue'
 
 export default {
   components: {

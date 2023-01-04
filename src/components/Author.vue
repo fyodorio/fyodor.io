@@ -1,14 +1,14 @@
 <template>
 	<div class="author">
 
-		<g-image alt="Author image" class="author__image" src="~/assets/images/author.jpg" width="180" height="180" blur="5" />
+		<img alt="Author image" class="author__image" src="images/author.jpg" width="180" height="180" />
 
 		<h1 v-if="showTitle" class="author__site-title">
-			{{ $static.metadata.siteName }}
+			{{ config.title }}
 		</h1>
 
 		<p class="author__intro">
-			{{ $static.metadata.siteDescription }}
+			{{ config.description }}
 		</p>
 
 		<p class="author__links">
@@ -21,18 +21,16 @@
 	</div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-	siteDescription
-  }
-}
-</static-query>
-
 <script>
+import config from '../data/config';
+
 export default {
-	props: ['showTitle']
+	props: ['showTitle'],
+	data: () => {
+		return {
+			config
+		}
+	}
 }
 </script>
 

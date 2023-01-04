@@ -9,11 +9,14 @@
 export default {
   data() {
     return {
-      darkTheme: false
+      darkTheme: false // FIXME: works only for the icon now
     }
   },
   methods: {
     toggleTheme() {
+      // FIXME: the method doesn't work
+      console.log('toggled');
+
       this.darkTheme = !this.darkTheme
 
       // This is using a script that is added in index.html
@@ -23,7 +26,7 @@ export default {
     }
   },
   mounted() {
-    if (window.__theme == 'dark') this.darkTheme = true
+    if (window.__theme === 'dark') this.darkTheme = true
   }
 }
 </script>
