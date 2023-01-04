@@ -54,7 +54,7 @@ export default {
 }
 </script>
 
-<page-query>
+<!-- <page-query>
 query Post ($id: ID!) {
   post: post (id: $id) {
     title
@@ -71,7 +71,7 @@ query Post ($id: ID!) {
     cover_image
   }
 }
-</page-query>
+</page-query> -->
 
 <style lang="scss">
 .post-title {

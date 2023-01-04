@@ -10,7 +10,7 @@
   </Layout>
 </template>
 
-<page-query>
+<!-- <page-query>
 query Tag ($id: ID!) {
   tag (id: $id) {
     title
@@ -30,7 +30,7 @@ query Tag ($id: ID!) {
     }
   }
 }
-</page-query>
+</page-query> -->
 
 <script>
 import Author from '~/components/Author.vue'

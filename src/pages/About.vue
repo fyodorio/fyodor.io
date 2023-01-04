@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<page-query>
+<!-- <page-query>
 query {
   posts: allPost(filter: { title: { eq: "About the shed dweller" }}) {
     edges {
@@ -36,7 +36,7 @@ query {
     }
   }
 }
-</page-query>
+</page-query> -->
 
 <style lang="scss">
 // styles brought from Post.vue for consistency
