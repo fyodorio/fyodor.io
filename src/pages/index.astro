@@ -13,8 +13,10 @@ const posts = await Astro.glob('./posts/*.md').then(posts =>
       date: new Date(frontmatter.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' }),
       cover_image: frontmatter.cover_image,
       tags: frontmatter.tags.map((tag) => ({title: tag, path: `/${tag}`})),
-      timeToRead: calculateTimeToRead(compiledContent())
+      timeToRead: calculateTimeToRead(compiledContent()),
+      published: frontmatter.published
     }))
+    .filter(post => post.published)
 		.sort((a, b) => (new Date(b.date) as any) - (new Date(a.date) as any))
 );
 ---
