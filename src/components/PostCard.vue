@@ -1,7 +1,7 @@
 <template>
   <div class="post-card content-box" :class="{'post-card--has-poster' : post.poster}">
     <div class="post-card__header">
-      <img v-if="post.cover_image" :src="post.cover_image" />
+      <img v-if="post.cover_image" :src="post.cover_image" width="100%" />
     </div>
     <div class="post-card__content">
       <h2 class="post-card__title" v-html="post.title" />
