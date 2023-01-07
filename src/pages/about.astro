@@ -7,14 +7,19 @@ const aboutPost = await Astro.glob('./posts/about-the-shed-dweller.md').then(pos
     .map(({ frontmatter, compiledContent }) => ({
       title: frontmatter.title,
       description: frontmatter.description,
-      date: new Date(frontmatter.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' }),
+      canonicalURL: frontmatter.canonicalURL,
       cover_image: frontmatter.cover_image,
       content: compiledContent()
     }))[0]
 );
 ---
   
-<Layout title={ aboutPost.title } description={ aboutPost.description }>
+<Layout 
+  title={ aboutPost.title } 
+  description={ aboutPost.description } 
+  canonicalURL={ aboutPost.canonicalURL } 
+  image={ aboutPost.cover_image }
+>
   <div class="about-title">
     <h1>{ aboutPost.title }</h1>
   </div>
