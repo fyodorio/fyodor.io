@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.vue';
+import { calculateTimeToRead } from '../../utils/time-to-read';
+
+export async function getStaticPaths({}) {
+  const allPosts = await Astro.glob('../*.md').then(posts =>
+    posts
+        .map(({ frontmatter, url, compiledContent }) => ({
+        path: url,
+        title: frontmatter.title,
+        description: frontmatter.description,
+        date: new Date(frontmatter.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' }),
+        cover_image: frontmatter.cover_image,
+        tags: frontmatter.tags,
+        timeToRead: calculateTimeToRead(compiledContent()),
+        published: frontmatter.published
+        }))
+        .sort((a, b) => (new Date(b.date) as any) - (new Date(a.date) as any))
+    );
+
+  const uniqueTags = [...new Set(allPosts.map((post) => post.tags).flat())];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) => post.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<Layout 
+    title={ tag } 
+    description={ tag } 
+    canonicalURL={ Astro.site.href + 'tags/' + tag }
+    showLogo={ true }
+>
+    <h1 class="tag-title text-center space-bottom">Posts tagged with "{ tag }"</h1>
+
+    <div class="posts">
+      { posts.map((post) => <PostCard post={post} />) }
+    </div>
+</Layout>

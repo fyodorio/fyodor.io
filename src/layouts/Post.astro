@@ -8,7 +8,6 @@ import { calculateTimeToRead } from '../utils/time-to-read';
 const { frontmatter } = Astro.props;
 
 frontmatter.date = new Date(frontmatter.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
-frontmatter.tags = frontmatter.tags.map((tag) => ({title: tag, path: `/${tag}`}));
 frontmatter.timeToRead = calculateTimeToRead(Astro.props.compiledContent());
 ---
 
