@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Post.astro
 title: Slots vs Props in UI components
 date: 2023-01-05
 published: true

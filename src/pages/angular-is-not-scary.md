@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Post.astro
 title: Angular is not scary
 date: 2020-03-18
 published: true

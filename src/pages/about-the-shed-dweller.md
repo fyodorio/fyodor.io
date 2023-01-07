@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Post.astro
 title: About the shed dweller
 date: 2022-12-31
 published: false

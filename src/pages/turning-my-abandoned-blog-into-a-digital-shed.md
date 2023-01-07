@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Post.astro
 title: Turning my abandoned blog into a digital shed
 date: 2022-12-30
 published: true

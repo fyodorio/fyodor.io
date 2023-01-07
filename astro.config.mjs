@@ -4,5 +4,8 @@ import image from "@astrojs/image";
 
 export default defineConfig({
   site: 'https://fyodor.io/',
-  integrations: [vue(), image()]
+  integrations: [vue(), image()],
+  markdown: {
+    syntaxHighlight: 'prism',
+  }
 });

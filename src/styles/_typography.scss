@@ -69,3 +69,9 @@ ol {
     margin-bottom: .6em;
   }
 }
+
+// @todo check why nested dynamically-generated content is not styled from the insides of the corresponding components
+.post__content > p:first-child, .about-text__content > p:first-child {
+    font-size: 1.2em;
+    color: var(--title-color);
+}

@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Post.astro
 title: Nx-based monorepo — pains and gains
 date: 2020-03-02
 published: true

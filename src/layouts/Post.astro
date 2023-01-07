@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Base.astro';
+import PostMeta from '../components/PostMeta.vue';
+import PostTags from '../components/PostTags.vue';
+import Author from '../components/Author.vue';
+import { calculateTimeToRead } from '../utils/time-to-read';
+
+const { frontmatter } = Astro.props;
+
+frontmatter.date = new Date(frontmatter.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
+frontmatter.tags = frontmatter.tags.map((tag) => ({title: tag, path: `/${tag}`}));
+frontmatter.timeToRead = calculateTimeToRead(Astro.props.compiledContent());
+---
+
+<Layout 
+  title={ frontmatter.title } 
+  description={ frontmatter.description } 
+  canonicalURL={ frontmatter.canonicalURL } 
+  image={ frontmatter.cover_image }
+  showLogo={true}
+>
+  <div class="post-title">
+    <h1 class="post-title__text">{ frontmatter.title }</h1>
+
+    <PostMeta post={ frontmatter } />
+  </div>
+
+  <div class="post content-box">
+    <div class="post__header">
+      { frontmatter.cover_image && <img alt="Cover image" src={ frontmatter.cover_image } /> }
+    </div>
+
+    <div class="post__content"><slot /></div>
+
+    <div class="post__footer">
+      <PostTags post={ frontmatter } />
+    </div>
+  </div>
+
+  <!-- Add comment widgets here -->
+  <div class="post-comments"></div>
+
+  <Author class="post-author" />
+</Layout>
+
+<style lang="scss">
+.post-title {
+  padding: calc(var(--space) / 2) 0 calc(var(--space) / 2);
+  text-align: center;
+}
+
+.post {
+
+  &__header {
+    width: calc(100% + var(--space) * 2);
+    margin-left: calc(var(--space) * -1);
+    margin-top: calc(var(--space) * -1);
+    margin-bottom: calc(var(--space) / 2);
+    overflow: hidden;
+    border-radius: var(--radius) var(--radius) 0 0;
+
+    img {
+      width: 100%;
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__content {
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    li {
+      ul, p {
+        margin-bottom: 0.6em;
+      }
+    }
+
+    img {
+      width: calc(100% + var(--space) * 2);
+      margin-left: calc(var(--space) * -1);
+      display: block;
+      max-width: none;
+    }
+  }
+
+  &__content > p:first-child {
+    font-size: 1.2em;
+    color: var(--title-color);
+  }
+}
+
+// remove top border radius when on mobile
+@media screen and (max-width: 650px) {
+  .post__header {
+    border-radius: 0;
+  }
+}
+
+.post-comments {
+  padding: calc(var(--space) / 2);
+
+  &:empty {
+    display: none;
+  }
+}
+
+.post-author {
+  margin-top: calc(var(--space) / 2);
+}
+</style>

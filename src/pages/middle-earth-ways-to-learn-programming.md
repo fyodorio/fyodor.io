@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Post.astro
 title: Middle-Earth ways to learn programming 
 date: 2020-04-04
 published: true

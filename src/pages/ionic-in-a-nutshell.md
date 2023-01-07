@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Post.astro
 title: Ionic in a nutshell
 date: 2020-01-11
 published: true

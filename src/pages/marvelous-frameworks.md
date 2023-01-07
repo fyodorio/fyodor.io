@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Post.astro
 title: Marvelous frameworks
 date: 2020-01-25
 published: true

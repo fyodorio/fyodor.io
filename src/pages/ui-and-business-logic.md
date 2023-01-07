@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Post.astro
 title: UI and business logic or the chicken and egg problem
 date: 2020-12-01
 published: true

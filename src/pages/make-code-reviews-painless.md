@@ -1,4 +1,5 @@
 ---
+layout: ../layouts/Post.astro
 title: Make code reviews painless
 date: 2020-02-14
 published: true
