@@ -1,7 +1,7 @@
 <template>
 	<div class="author">
 
-		<img alt="Author image" class="author__image" src="images/author.jpg" width="180" height="180" />
+		<img alt="Author image" class="author__image" src="https://res.cloudinary.com/fyodorio/image/upload/v1673112865/my-logos/author_wudaur.jpg" width="180" height="180" />
 
 		<h1 v-if="showTitle" class="author__site-title">
 			{{ config.title }}
