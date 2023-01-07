@@ -4,7 +4,7 @@ import Author from '../components/Author.vue';
 import PostCard from '../components/PostCard.vue';
 import { calculateTimeToRead } from '../utils/time-to-read';
 
-const posts = await Astro.glob('./posts/*.md').then(posts =>
+const posts = await Astro.glob('./*.md').then(posts =>
   posts
     .map(({ frontmatter, url, compiledContent }) => ({
       path: url,

@@ -2,7 +2,7 @@
 import Layout from '../layouts/Base.astro';
 
 /** @todo there should be a way to implement it better */
-const aboutPost = await Astro.glob('./posts/about-the-shed-dweller.md').then(posts =>
+const aboutPost = await Astro.glob('./about-the-shed-dweller.md').then(posts =>
   posts
     .map(({ frontmatter, compiledContent }) => ({
       title: frontmatter.title,
