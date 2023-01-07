@@ -58,8 +58,8 @@ const showLogo = Astro.props.showLogo;
         <div class="header__right">
             <ul class="nav">
               <li class="nav-item">
-                {Astro.url.pathname === '/' && <a href="/about">About</a>}
-                {Astro.url.pathname === '/about' && <a href="/">Home</a>}
+                {Astro.url.pathname === '/' && <a href="/about/">About</a>}
+                {Astro.url.pathname === '/about/' && <a href="/">Home</a>}
               </li>
             </ul>
 
