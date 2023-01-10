@@ -1,6 +1,6 @@
 <template>
    <div class="post-tags">
-   		<a class="post-tags__link" v-for="tag in post.tags" :href="`tags/${tag}`">
+   		<a class="post-tags__link" v-for="tag in post.tags" :href="`/tags/${tag}`">
    			<span>#</span> {{ tag }}
 		</a>
     </div>
